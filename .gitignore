@@ -1,3 +1,14 @@
+# Игнорируем папку с данными
+data/
+*.zip
+*.xlsx
+*.csv
+*.json
+*.xml
+*.tab
+*.yaml
+*.pdf
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
