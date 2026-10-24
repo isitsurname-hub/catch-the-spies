@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1421">
+  <title>Атлас маршрутов · Аналитика авиаданных</title>
+  <meta name="description" content="Локальная панель исследования авиаданных, кандидатов и связей.">
+  <link rel="stylesheet" href="/styles.css?v=4">
+  <script src="/app.js?v=4" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Главное меню">
+      <a class="brand" href="#overview" data-view="overview" aria-label="На главную">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span><strong>АТЛАС</strong><small>маршрутов</small></span>
+      </a>
+      <div class="sidebar-label">ИССЛЕДОВАНИЕ</div>
+      <nav class="nav">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">◫</span> Обзор</button>
+        <button class="nav-item" data-view="signals"><span class="nav-icon">✳</span> Признаки</button>
+        <button class="nav-item" data-view="people"><span class="nav-icon">◎</span> Люди и дела</button>
+        <button class="nav-item" data-view="network"><span class="nav-icon">⌘</span> Карта связей</button>
+        <button class="nav-item" data-view="compare"><span class="nav-icon">⇄</span> Сравнить маршруты</button>
+        <button class="nav-item" data-view="occupancy"><span class="nav-icon">✈</span> Загрузка рейсов</button>
+        <button class="nav-item" data-view="tables"><span class="nav-icon">▤</span> Все таблицы</button>
+      </nav>
+      <div class="sidebar-label sidebar-label-lower">ИНСТРУМЕНТЫ</div>
+      <nav class="nav">
+        <button class="nav-item" data-view="run"><span class="nav-icon">▷</span> Запустить анализ <span id="job-dot" class="job-dot" hidden></span></button>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-note">
+        <span class="local-indicator"></span>
+        <div><strong>Локальный режим</strong><span>Данные остаются на этом компьютере</span></div>
+      </div>
+      <div class="sidebar-footer">Учебный проект · 2026</div>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <div class="topbar-left"><span class="crumb-root">ИССЛЕДОВАНИЕ</span><span class="crumb-separator">/</span><span id="page-label">Обзор</span></div>
+        <div class="topbar-right"><span class="topbar-pill"><span class="local-indicator"></span> LOCALHOST</span><span id="top-updated" class="top-updated"></span></div>
+      </header>
+      <main id="content" tabindex="-1"><div class="loading-page"><div class="spinner"></div><p>Загружаем данные…</p></div></main>
+      <footer class="main-footer">Совпадения в данных — основания для проверки, а не доказательство разведдеятельности.</footer>
+    </div>
+  </div>
+  <dialog id="record-dialog" class="record-dialog" aria-labelledby="record-dialog-title">
+    <div class="record-dialog-heading">
+      <div><div class="section-kicker">ПОЛНОЕ СОДЕРЖИМОЕ</div><h2 id="record-dialog-title">Запись</h2><p id="record-dialog-subtitle"></p></div>
+      <button type="button" class="record-dialog-close" data-dialog-close aria-label="Закрыть">×</button>
+    </div>
+    <div id="record-dialog-content" class="record-dialog-content"></div>
+    <div class="record-dialog-actions">
+      <button type="button" class="btn" id="record-dialog-copy">Скопировать</button>
+      <button type="button" class="btn btn-primary" data-dialog-close>Закрыть</button>
+    </div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
